@@ -1,6 +1,6 @@
 ﻿using MailsService.Model.Abstractions;
 
-namespace MailsService.Model.Models
+namespace MailsService.Model.Entities
 {
     public class SentMessage : AuditModel<int>
     {

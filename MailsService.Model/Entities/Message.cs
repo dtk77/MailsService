@@ -1,4 +1,4 @@
-﻿namespace MailsService.Model.Models
+﻿namespace MailsService.Model.Entities
 {
     public class Message
     {
