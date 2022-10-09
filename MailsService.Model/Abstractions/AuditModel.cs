@@ -6,12 +6,12 @@
         /// <summary>
         /// Tracks when this entity was first persisted to the database.
         /// </summary>
-        public DateTime CreatedDate { get; internal set; }
+        public DateTime CreatedDate { get; set; }
 
 
         /// <summary>
         /// Tracks when this entity was last updated.
         /// </summary>
-        public DateTime UpdatedDate { get; internal set; }
+        public DateTime UpdatedDate { get; set; }
     }
 }

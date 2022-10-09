@@ -1,7 +1,9 @@
 ﻿using MailsService.Model.Abstractions;
+using Microsoft.EntityFrameworkCore;
 
 namespace MailsService.Model.Entities
 {
+    [Owned]
     public class AuditMessageStatus
     {
         public ResultStatus Result { get; set; } = ResultStatus.None;
@@ -9,7 +11,7 @@ namespace MailsService.Model.Entities
         public DateTime SentDate { get; set; }
     }
 
-    public enum ResultStatus
+    public enum ResultStatus : byte
     {
         None,
         Ok,

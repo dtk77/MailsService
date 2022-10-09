@@ -1,7 +1,10 @@
-﻿namespace MailsService.Model.Entities
+﻿using Microsoft.EntityFrameworkCore;
+
+namespace MailsService.Model.Entities
 {
+    [Owned]
     public class Recipient
     {
-        public string Address { get; set; } = string.Empty;
+        public string email { get; set; } = string.Empty;
     }
 }
