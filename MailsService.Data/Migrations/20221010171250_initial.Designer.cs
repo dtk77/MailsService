@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace MailsService.Data.Migrations
 {
     [DbContext(typeof(MailsServiceDbContext))]
-    [Migration("20221008200535_initial01")]
-    partial class initial01
+    [Migration("20221010171250_initial")]
+    partial class initial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -24,7 +24,7 @@ namespace MailsService.Data.Migrations
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder, 1L, 1);
 
-            modelBuilder.Entity("MailsService.Model.Entities.SentMessage", b =>
+            modelBuilder.Entity("MailsService.Model.Entities.SentReport", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -40,42 +40,43 @@ namespace MailsService.Data.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("sentMessages");
+                    b.ToTable("SentReport");
                 });
 
-            modelBuilder.Entity("MailsService.Model.Entities.SentMessage", b =>
+            modelBuilder.Entity("MailsService.Model.Entities.SentReport", b =>
                 {
                     b.OwnsOne("MailsService.Model.Entities.AuditMessageStatus", "MessageStatus", b1 =>
                         {
-                            b1.Property<int>("SentMessageId")
+                            b1.Property<int>("SentReportId")
                                 .HasColumnType("int");
 
                             b1.Property<string>("FailedMassage")
                                 .IsRequired()
-                                .HasMaxLength(200)
-                                .HasColumnType("nvarchar(200)")
+                                .HasMaxLength(500)
+                                .HasColumnType("nvarchar(500)")
                                 .HasColumnName("FailedMassage");
 
-                            b1.Property<byte>("Result")
+                            b1.Property<string>("Result")
+                                .IsRequired()
                                 .HasMaxLength(10)
-                                .HasColumnType("tinyint")
+                                .HasColumnType("nvarchar(10)")
                                 .HasColumnName("Result");
 
                             b1.Property<DateTime>("SentDate")
                                 .HasColumnType("datetime2")
                                 .HasColumnName("SentDate");
 
-                            b1.HasKey("SentMessageId");
+                            b1.HasKey("SentReportId");
 
-                            b1.ToTable("sentMessages");
+                            b1.ToTable("SentReport");
 
                             b1.WithOwner()
-                                .HasForeignKey("SentMessageId");
+                                .HasForeignKey("SentReportId");
                         });
 
                     b.OwnsOne("MailsService.Model.Entities.Message", "Message", b1 =>
                         {
-                            b1.Property<int>("SentMessageId")
+                            b1.Property<int>("SentReportId")
                                 .HasColumnType("int");
 
                             b1.Property<string>("Body")
@@ -90,31 +91,31 @@ namespace MailsService.Data.Migrations
                                 .HasColumnType("nvarchar(200)")
                                 .HasColumnName("Subject");
 
-                            b1.HasKey("SentMessageId");
+                            b1.HasKey("SentReportId");
 
-                            b1.ToTable("sentMessages");
+                            b1.ToTable("SentReport");
 
                             b1.WithOwner()
-                                .HasForeignKey("SentMessageId");
+                                .HasForeignKey("SentReportId");
                         });
 
                     b.OwnsOne("MailsService.Model.Entities.Recipient", "Recipient", b1 =>
                         {
-                            b1.Property<int>("SentMessageId")
+                            b1.Property<int>("SentReportId")
                                 .HasColumnType("int");
 
-                            b1.Property<string>("email")
+                            b1.Property<string>("Email")
                                 .IsRequired()
                                 .HasMaxLength(260)
                                 .HasColumnType("nvarchar(260)")
                                 .HasColumnName("Recipient");
 
-                            b1.HasKey("SentMessageId");
+                            b1.HasKey("SentReportId");
 
-                            b1.ToTable("sentMessages");
+                            b1.ToTable("SentReport");
 
                             b1.WithOwner()
-                                .HasForeignKey("SentMessageId");
+                                .HasForeignKey("SentReportId");
                         });
 
                     b.Navigation("Message");

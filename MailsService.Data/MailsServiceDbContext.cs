@@ -2,7 +2,6 @@
 using MailsService.Model.Abstractions;
 using MailsService.Model.Entities;
 using Microsoft.EntityFrameworkCore;
-using System;
 
 namespace MailsService.Data
 {
@@ -13,7 +12,7 @@ namespace MailsService.Data
         {
         }
 
-        public DbSet<SentMessage> sentMessages { get; set; }
+        public DbSet<SentReport> SentReport { get; set; }
 
 
 

@@ -8,7 +8,7 @@ namespace MailsService.Data
         public MailsServiceDbContext CreateDbContext(string[] args)
         {
             var optionsBuilder = new DbContextOptionsBuilder<MailsServiceDbContext>();
-            optionsBuilder.UseSqlServer("Server=(localdb)\\MSSQLLocalDb;Database=MailsServer;Trust_Connection=True;MultipleActiveResultSets=True;");
+            optionsBuilder.UseSqlServer("Server=(localdb)\\MSSQLLocalDb;Database=MailsServer;Trusted_Connection=True;MultipleActiveResultSets=True;");
             return new MailsServiceDbContext(optionsBuilder.Options);
         }
     }
