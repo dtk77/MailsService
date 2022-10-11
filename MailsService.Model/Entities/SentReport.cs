@@ -6,7 +6,7 @@ namespace MailsService.Model.Entities
     /// This object is a report line for db
     /// </summary>
     /// <remarks></remarks>
-    public class SentMessage : AuditModel<int>
+    public class SentReport : AuditModel<int>
     {
         public Message? Message { get; set; }
         public Recipient? Recipient { get; set; }
