@@ -1,12 +1,12 @@
-﻿using AutoMapper;
+using AutoMapper;
 using MailsService.Data;
 using MediatR;
 
 namespace MailsService.Command
 {
     /// <summary>
-	/// Base class of all query handlers.
-	/// </summary>
+    /// Base class of all query handlers.
+    /// </summary>
     public abstract class QueryHandlerBase : HandlerBase
     {
         protected QueryHandlerBase(
