@@ -1,4 +1,4 @@
-﻿using MailsService.Data;
+using MailsService.Data;
 using MediatR;
 using AutoMapper;
 
@@ -16,8 +16,5 @@ namespace MailsService.Command
         protected IMediator Mediator { get; }
         protected MailsServiceDbContext Context { get; }
         protected IMapper Mapper { get; }
-
-       
-
     }
 }
