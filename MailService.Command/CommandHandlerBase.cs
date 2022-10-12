@@ -1,12 +1,12 @@
-﻿using AutoMapper;
+using AutoMapper;
 using MailsService.Data;
 using MediatR;
 
 namespace MailsService.Command
 {
     /// <summary>
-	/// Base class of all command handlers.
-	/// </summary>
+    /// Base class of all command handlers.
+    /// </summary>
     public abstract class CommandHandlerBase : HandlerBase
     {
         protected CommandHandlerBase(
